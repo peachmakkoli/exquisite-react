@@ -13,7 +13,6 @@ const Game = () => {
     }
   }).join(" ");
 
-  const [ fieldInput, setFieldInput ] = useState(FIELDS);
   const [ player, setPlayer ] = useState("1");
   
   return (
@@ -30,7 +29,7 @@ const Game = () => {
 
       <RecentSubmission />
 
-      <PlayerSubmissionForm player={player} fields={fieldInput} />
+      <PlayerSubmissionForm player={player} />
 
       <FinalPoem />
 

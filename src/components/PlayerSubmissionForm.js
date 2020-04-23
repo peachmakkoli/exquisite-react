@@ -2,85 +2,115 @@ import React, { useState } from 'react';
 import './PlayerSubmissionForm.css';
 
 const PlayerSubmissionForm = (props) => {
-  
+  const [ fieldInput, setFieldInput ] = useState(
+    {
+      adj1: '',
+      noun1: '',
+      adv: '',
+      verb: '',
+      adj2: '',
+      noun2: '',
+    }
+  );
+
+  const onInputChange = (event) => {
+    const { name, value } = event.target
+    
+    const newFieldInput = {
+      ...fieldInput,
+      [name]: value,
+    };
+
+    setFieldInput(newFieldInput);
+  };
+
   return (
     <div className="PlayerSubmissionForm">
       <h3>Player Submission Form for Player #{props.player}</h3>
 
-      <form className="PlayerSubmissionForm__form" >
+      <form className="PlayerSubmissionForm__form">
 
         <div className="PlayerSubmissionForm__poem-inputs">
 
           <div>
-            <span>{props.fields[0]}</span>
+            <span>The</span>
           </div>
 
           <div>
-            <label htmlFor={props.fields[1].key}>{props.fields[1].placeholder}</label>
+            <label htmlFor="adj1">adjective</label>
               <input 
-                name={props.fields[1].key} 
-                placeholder={props.fields[1].placeholder}
-                value={props.fields[1].value}
+                name="adj1" 
+                placeholder="adjective"
+                value={fieldInput.adj1}
+                onChange={onInputChange}
               />
           </div>
 
           <div>
-            <label htmlFor={props.fields[2].key}>{props.fields[2].placeholder}</label>
+            <label htmlFor="noun1">noun</label>
               <input 
-                name={props.fields[2].key} 
-                placeholder={props.fields[2].placeholder}
-                value={props.fields[2].value}
+                name="noun1" 
+                placeholder="noun"
+                value={fieldInput.noun1}
+                onChange={onInputChange}
               />
           </div>
 
           <div>
-            <label htmlFor={props.fields[3].key}>{props.fields[3].placeholder}</label>
+            <label htmlFor="adv">adverb</label>
               <input 
-                name={props.fields[3].key} 
-                placeholder={props.fields[3].placeholder}
-                value={props.fields[3].value}
+                name="adv" 
+                placeholder="adverb"
+                value={fieldInput.adv}
+                onChange={onInputChange}
               />
           </div>
 
           <div>
-            <label htmlFor={props.fields[4].key}>{props.fields[4].placeholder}</label>
+            <label htmlFor="verb">verb</label>
               <input 
-                name={props.fields[4].key} 
-                placeholder={props.fields[4].placeholder}
-                value={props.fields[4].value}
+                name="verb" 
+                placeholder="verb"
+                value={fieldInput.verb}
+                onChange={onInputChange}
               />
           </div>
 
           <div>
-            <span>{props.fields[5]}</span>
+            <span>the</span>
           </div>
 
           <div>
-            <label htmlFor={props.fields[6].key}>{props.fields[6].placeholder}</label>
+            <label htmlFor="adj2">adjective</label>
               <input 
-                name={props.fields[6].key} 
-                placeholder={props.fields[6].placeholder}
-                value={props.fields[6].value}
+                name="adj2"
+                placeholder="adjective"
+                value={fieldInput.adj2}
+                onChange={onInputChange}
               />
           </div>
 
           <div>
-            <label htmlFor={props.fields[7].key}>{props.fields[7].placeholder}</label>
+            <label htmlFor="noun2">noun</label>
               <input 
-                name={props.fields[7].key} 
-                placeholder={props.fields[7].placeholder}
-                value={props.fields[7].value}
+                name="noun2" 
+                placeholder="noun"
+                value={fieldInput.noun2}
+                onChange={onInputChange}
               />
           </div>
 
           <div>
-            <span>{props.fields[8]}</span>
+            <span>.</span>
           </div>
 
         </div>
 
         <div className="PlayerSubmissionForm__submit">
-          <input type="submit" value="Submit Line" className="PlayerSubmissionForm__submit-btn" />
+          <input 
+            type="submit" 
+            value="Submit Line" 
+            className="PlayerSubmissionForm__submit-btn" />
         </div>
       </form>
     </div>
