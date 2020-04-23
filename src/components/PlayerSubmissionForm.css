@@ -21,6 +21,14 @@
   display: none;
 }
 
+.PlayerSubmissionForm__input-valid {
+  background-color: white;
+}
+
+.PlayerSubmissionForm__input-invalid {
+  background-color: lightpink;
+}
+
 .PlayerSubmissionForm__submit {
   display: flex;
   justify-content: center;

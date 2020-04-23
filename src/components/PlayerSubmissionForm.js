@@ -12,6 +12,10 @@ const PlayerSubmissionForm = ({ player, onLineSubmitCallback, revealPoem }) => {
       noun2: '',
   });
 
+  const isValid = (field) => {
+    return (field !== '') ? "PlayerSubmissionForm__input-valid" : "PlayerSubmissionForm__input-invalid";
+  }
+
   const onInputChange = (event) => {
     const { name, value } = event.target
     
@@ -70,6 +74,7 @@ const PlayerSubmissionForm = ({ player, onLineSubmitCallback, revealPoem }) => {
                   name="adj1" 
                   placeholder="adjective"
                   value={fieldInput.adj1}
+                  className={isValid(fieldInput.adj1)}
                   onChange={onInputChange}
                 />
             </div>
@@ -80,6 +85,7 @@ const PlayerSubmissionForm = ({ player, onLineSubmitCallback, revealPoem }) => {
                   name="noun1" 
                   placeholder="noun"
                   value={fieldInput.noun1}
+                  className={isValid(fieldInput.noun1)}
                   onChange={onInputChange}
                 />
             </div>
@@ -90,6 +96,7 @@ const PlayerSubmissionForm = ({ player, onLineSubmitCallback, revealPoem }) => {
                   name="adv" 
                   placeholder="adverb"
                   value={fieldInput.adv}
+                  className={isValid(fieldInput.adv)}
                   onChange={onInputChange}
                 />
             </div>
@@ -100,6 +107,7 @@ const PlayerSubmissionForm = ({ player, onLineSubmitCallback, revealPoem }) => {
                   name="verb" 
                   placeholder="verb"
                   value={fieldInput.verb}
+                  className={isValid(fieldInput.verb)}
                   onChange={onInputChange}
                 />
             </div>
@@ -114,6 +122,7 @@ const PlayerSubmissionForm = ({ player, onLineSubmitCallback, revealPoem }) => {
                   name="adj2"
                   placeholder="adjective"
                   value={fieldInput.adj2}
+                  className={isValid(fieldInput.adj2)}
                   onChange={onInputChange}
                 />
             </div>
@@ -124,6 +133,7 @@ const PlayerSubmissionForm = ({ player, onLineSubmitCallback, revealPoem }) => {
                   name="noun2" 
                   placeholder="noun"
                   value={fieldInput.noun2}
+                  className={isValid(fieldInput.noun2)}
                   onChange={onInputChange}
                 />
             </div>
