@@ -2,7 +2,7 @@ import React from 'react';
 import './RecentSubmission.css';
 
 const RecentSubmission = ({ submission, revealPoem }) => {
-  if (!submission || revealPoem) {
+  if (!submission || revealPoem) { // if submission is null, the code on line 11 will throw a TypeError
     return null;
   } else {
     return (

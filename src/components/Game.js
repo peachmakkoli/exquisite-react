@@ -24,6 +24,7 @@ const Game = () => {
       key: player,
       ...formInput,
     });
+    
     setSubmissionList(newSubmissionList);
     setPlayerSubmission(formInput);
     setPlayer(player+1);
