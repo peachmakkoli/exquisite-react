@@ -14,11 +14,23 @@ const Game = () => {
   }).join(" ");
 
   const [ player, setPlayer ] = useState(1);
-  const [ playerSubmission, setPlayerSubmission ] = useState(null); // gonna pass formSubmission into RecentSubmission
+  const [ playerSubmission, setPlayerSubmission ] = useState(null); 
+  const [ submissionList, setSubmissionList ] = useState([]);
 
   const onLineSubmitCallback = (formInput) => {
+
+    const newSubmissionList = [...submissionList];
+    
+    newSubmissionList.push({
+      id: player,
+      ...formInput,
+    });
+
+    setSubmissionList(newSubmissionList);
+
+    setPlayerSubmission(`The ${formInput.adj1} ${formInput.noun1} ${formInput.adv} ${formInput.verb} the ${formInput.adj2} ${formInput.noun2}.`);
+    
     setPlayer(player+1);
-    setPlayerSubmission(formInput);
   };
   
   return (
@@ -33,7 +45,7 @@ const Game = () => {
         { exampleFormat }
       </p>
 
-      <RecentSubmission />
+      <RecentSubmission line={playerSubmission} />
 
       <PlayerSubmissionForm player={player} onLineSubmitCallback={onLineSubmitCallback} />
 
