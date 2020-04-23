@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import './PlayerSubmissionForm.css';
 
 const PlayerSubmissionForm = (props) => {
-  const [ fieldInput, setFieldInput ] = useState(
-    {
+
+  const [ fieldInput, setFieldInput ] = useState({
       adj1: '',
       noun1: '',
       adv: '',
       verb: '',
       adj2: '',
       noun2: '',
-    }
-  );
+  });
 
   const onInputChange = (event) => {
     const { name, value } = event.target
@@ -24,11 +23,40 @@ const PlayerSubmissionForm = (props) => {
     setFieldInput(newFieldInput);
   };
 
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    
+    const checkFields = (fields) => {
+      for (const key in fields) {
+        if (fields[key] === '') {
+          return false; 
+        };
+      };
+      return true;
+    };
+
+    console.log(checkFields(fieldInput));
+
+    if (checkFields(fieldInput)) {
+      // add callback function here, which passes fieldInput to Game
+      console.log(fieldInput);
+
+      setFieldInput({
+        adj1: '',
+        noun1: '',
+        adv: '',
+        verb: '',
+        adj2: '',
+        noun2: '',
+      });
+    };
+  };
+
   return (
     <div className="PlayerSubmissionForm">
       <h3>Player Submission Form for Player #{props.player}</h3>
 
-      <form className="PlayerSubmissionForm__form">
+      <form className="PlayerSubmissionForm__form" onSubmit={onFormSubmit}>
 
         <div className="PlayerSubmissionForm__poem-inputs">
 
@@ -110,7 +138,8 @@ const PlayerSubmissionForm = (props) => {
           <input 
             type="submit" 
             value="Submit Line" 
-            className="PlayerSubmissionForm__submit-btn" />
+            className="PlayerSubmissionForm__submit-btn"
+          />
         </div>
       </form>
     </div>
