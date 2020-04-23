@@ -21,6 +21,6 @@ const FinalPoem = ({ submissions, onButtonClickCallback, revealPoem }) => {
       </div>
     </div>
   );
-}
+};
 
 export default FinalPoem;

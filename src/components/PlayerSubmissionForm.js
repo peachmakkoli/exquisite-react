@@ -17,7 +17,7 @@ const PlayerSubmissionForm = ({ player, onLineSubmitCallback, revealPoem }) => {
   }; // helper function for changing input background color if field is empty
 
   const onInputChange = (event) => {
-    const { name, value } = event.target
+    const { name, value } = event.target;
     const newFieldInput = {
       ...fieldInput,
       [name]: value,

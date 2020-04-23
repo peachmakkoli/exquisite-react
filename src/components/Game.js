@@ -54,7 +54,7 @@ const Game = () => {
 
     </div>
   );
-}
+};
 
 
 const FIELDS = [
