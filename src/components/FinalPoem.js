@@ -12,7 +12,7 @@ const FinalPoem = ({ submissions, onButtonClickCallback, revealPoem }) => {
         {finalPoem}
       </section>
 
-      <div className="FinalPoem__reveal-btn-container">
+      <div className={ revealPoem ? "FinalPoem__hide" : "FinalPoem__reveal-btn-container" }>
         <input 
           type="button" 
           value="We are finished: Reveal the Poem"
