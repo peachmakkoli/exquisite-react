@@ -21,10 +21,6 @@
   display: none;
 }
 
-.PlayerSubmissionForm__input-valid {
-  background-color: white;
-}
-
 .PlayerSubmissionForm__input-invalid {
   background-color: lightpink;
 }
