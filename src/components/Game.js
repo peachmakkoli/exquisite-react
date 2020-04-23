@@ -19,18 +19,13 @@ const Game = () => {
   const [ revealPoem, setRevealPoem ] = useState(false);
 
   const onLineSubmitCallback = (formInput) => {
- 
     const newSubmissionList = [...submissionList];
-    
     newSubmissionList.push({
       key: player,
       ...formInput,
     });
-
     setSubmissionList(newSubmissionList);
-
-    setPlayerSubmission(`The ${formInput.adj1} ${formInput.noun1} ${formInput.adv} ${formInput.verb} the ${formInput.adj2} ${formInput.noun2}.`);
-    
+    setPlayerSubmission(formInput);
     setPlayer(player+1);
   };
   
@@ -50,7 +45,7 @@ const Game = () => {
         { exampleFormat }
       </p>
 
-      <RecentSubmission line={playerSubmission} revealPoem={revealPoem} />
+      <RecentSubmission submission={playerSubmission} revealPoem={revealPoem} />
 
       <PlayerSubmissionForm player={player} onLineSubmitCallback={onLineSubmitCallback} revealPoem={revealPoem} />
 
