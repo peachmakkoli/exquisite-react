@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './FinalPoem.css';
 
 const FinalPoem = ({ submissions, onButtonClickCallback, revealPoem }) => {
@@ -21,6 +22,22 @@ const FinalPoem = ({ submissions, onButtonClickCallback, revealPoem }) => {
       </div>
     </div>
   );
+};
+
+FinalPoem.propTypes = {
+  submissions: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.number.isRequired,
+      adj1: PropTypes.string.isRequired,
+      noun1: PropTypes.string.isRequired,
+      adv: PropTypes.string.isRequired,
+      verb: PropTypes.string.isRequired,
+      adj2: PropTypes.string.isRequired,
+      noun2: PropTypes.string.isRequired,
+    })
+  ),
+  onButtonClickCallback: PropTypes.func.isRequired,
+  revealPoem: PropTypes.bool.isRequired,
 };
 
 export default FinalPoem;

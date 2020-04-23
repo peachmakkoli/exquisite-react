@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './PlayerSubmissionForm.css';
 
 const PlayerSubmissionForm = ({ player, onLineSubmitCallback, revealPoem }) => {
@@ -156,5 +157,10 @@ const PlayerSubmissionForm = ({ player, onLineSubmitCallback, revealPoem }) => {
   };
 };
 
+PlayerSubmissionForm.propTypes = {
+  player: PropTypes.number.isRequired,
+  onLineSubmitCallback: PropTypes.func.isRequired,
+  revealPoem: PropTypes.bool.isRequired,
+};
 
 export default PlayerSubmissionForm;
