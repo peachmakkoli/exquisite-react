@@ -13,7 +13,13 @@ const Game = () => {
     }
   }).join(" ");
 
-  const [ player, setPlayer ] = useState("1");
+  const [ player, setPlayer ] = useState(1);
+  const [ playerSubmission, setPlayerSubmission ] = useState(null); // gonna pass formSubmission into RecentSubmission
+
+  const onLineSubmitCallback = (formInput) => {
+    setPlayer(player+1);
+    setPlayerSubmission(formInput);
+  };
   
   return (
     <div className="Game">
@@ -29,7 +35,7 @@ const Game = () => {
 
       <RecentSubmission />
 
-      <PlayerSubmissionForm player={player} />
+      <PlayerSubmissionForm player={player} onLineSubmitCallback={onLineSubmitCallback} />
 
       <FinalPoem />
 

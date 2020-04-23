@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './PlayerSubmissionForm.css';
 
-const PlayerSubmissionForm = (props) => {
+const PlayerSubmissionForm = ({ player, onLineSubmitCallback }) => {
 
   const [ fieldInput, setFieldInput ] = useState({
       adj1: '',
@@ -35,11 +35,8 @@ const PlayerSubmissionForm = (props) => {
       return true;
     };
 
-    console.log(checkFields(fieldInput));
-
     if (checkFields(fieldInput)) {
-      // add callback function here, which passes fieldInput to Game
-      console.log(fieldInput);
+      onLineSubmitCallback(fieldInput);
 
       setFieldInput({
         adj1: '',
@@ -54,7 +51,7 @@ const PlayerSubmissionForm = (props) => {
 
   return (
     <div className="PlayerSubmissionForm">
-      <h3>Player Submission Form for Player #{props.player}</h3>
+      <h3>Player Submission Form for Player #{player}</h3>
 
       <form className="PlayerSubmissionForm__form" onSubmit={onFormSubmit}>
 
