@@ -13,17 +13,16 @@ const PlayerSubmissionForm = ({ player, onLineSubmitCallback, revealPoem }) => {
   });
 
   const isValid = (field) => {
-    return (field !== '') ? "PlayerSubmissionForm__input-valid" : "PlayerSubmissionForm__input-invalid";
-  }
+    if (field === '') return "PlayerSubmissionForm__input-invalid";
+  }; // helper function for changing input background color if field is empty
 
   const onInputChange = (event) => {
     const { name, value } = event.target
-    
     const newFieldInput = {
       ...fieldInput,
       [name]: value,
     };
-
+    
     setFieldInput(newFieldInput);
   };
 
@@ -37,10 +36,10 @@ const PlayerSubmissionForm = ({ player, onLineSubmitCallback, revealPoem }) => {
         };
       };
       return true;
-    };
+    }; // helper function that prevents submission before all the fields have been filled
 
     if (checkFields(fieldInput)) {
-      onLineSubmitCallback(fieldInput);
+      onLineSubmitCallback(fieldInput); // send data back to Game
 
       setFieldInput({
         adj1: '',
