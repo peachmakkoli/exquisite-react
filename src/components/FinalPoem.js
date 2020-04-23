@@ -6,7 +6,7 @@ const FinalPoem = ({ submissions, onButtonClickCallback, revealPoem }) => {
 
   return (
     <div className="FinalPoem">
-      <section className={ revealPoem ? "FinalPoem__poem" : "FinalPoem__noshow" }>
+      <section className={ revealPoem ? "FinalPoem__poem" : "FinalPoem__hide" }>
         <h3>Final Poem</h3>
         {finalPoem}
       </section>
